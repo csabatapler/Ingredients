@@ -1,8 +1,8 @@
 import {initializeApp} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
 const appSettings = {
-    databaseURL: "https://shoppinglist-b0f7d-default-rtdb.europe-west1.firebasedatabase.app/"
+    databaseURL: "https://shoppinglist-b0f7d-default-rtdb.europe-west1.firebasedatabase.app"
 }
-import {getDatabase, ref, push} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+import {getDatabase, ref, push, onValue} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 
 const app =initializeApp(appSettings)
 const database = getDatabase(app)
@@ -28,3 +28,13 @@ function appendToList(item) {
 function clearInputFieldEl() {
     inputEl.value = ""
 }
+
+onValue(shoppingListInDB, function(snapshot) {
+    let shoppingListArray = Object.values(snapshot.val())
+    for (let i=0; i<shoppingListArray.length; i++) {
+        let currentItem = shoppingListArray[i]
+        console.log(currentItem)
+        appendToList(currentItem)
+    }
+    
+})
