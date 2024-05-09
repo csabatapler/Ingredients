@@ -21,6 +21,12 @@ addBtn.addEventListener("click", function() {
     }
 })
 
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        addBtn.click()
+    }
+})
+
 onValue(shoppingListInDB, function(snapshot) {
     
         
