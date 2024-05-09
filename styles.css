@@ -51,12 +51,14 @@ input {
 button {
     color: #FDFDFD;
     background-color: #AC485A;
+    border: 1px solid grey;
 }
 
 #img {
-    margin: 30px auto;
+    margin: 20px auto 10px auto;
     width: 100px;
     height: auto;
+    
 }
 
 
@@ -70,6 +72,7 @@ ul {
     overflow-y: auto; /* Add this line */
     max-height: 100%; /* Add this line */
     padding: 5px;
+    margin-top: 0px;
 }
 
 ul li {
